@@ -90,13 +90,13 @@ function my_custom_checkout_field_process() {
 
 function validaCep($cep){
 	$cep = trim($cep);
-	$avaliaCep = ereg("^[0-9]{5}-[0-9]{3}$", $cep);
+	$avaliaCep = preg_match("/^[0-9]{5}-[0-9]{3}$/", $cep);
 	return $avaliaCep;
 }
 function validaTelefone($telefone){
 	$telefone = trim($telefone);
-	$avalia = ereg("^\([0-9]{2}\)[0-9]{4}-[0-9]{4}$", $telefone);
-	if($avalia == false) $avalia = ereg("^\([0-9]{2}\)[0-9]{5}-[0-9]{4}$", $telefone);
+	$avalia = preg_match("/^\([0-9]{2}\)[0-9]{4}-[0-9]{4}$/", $telefone);
+	if($avalia == false) $avalia = preg_match("/^\([0-9]{2}\)[0-9]{5}-[0-9]{4}$/", $telefone);
 	return $avalia;
 }
 
